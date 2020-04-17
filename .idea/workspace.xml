@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22e7292c-916f-4630-b751-dbeff960b61e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/selenium.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RainbowTests.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/AgentTesting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/FrontEndTesting.java" afterDir="false" />
+    <list default="true" id="22e7292c-916f-4630-b751-dbeff960b61e" name="Default Changelist" comment="Add first successful test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frontend/FrontEndTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontend/FrontEndTesting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +37,29 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
+  <component name="RunManager">
+    <configuration name="FrontEndTesting.testFrontPageSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RainbowTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="frontend" />
+      <option name="MAIN_CLASS_NAME" value="frontend.FrontEndTesting" />
+      <option name="METHOD_NAME" value="testFrontPageSuccessful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FrontEndTesting.testFrontPageSuccessful" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -62,10 +78,30 @@
       <screen x="0" y="27" width="1853" height="1053" />
     </state>
     <state x="521" y="215" width="800" height="684" key="#Project_Structure/0.27.1853.1053@0.27.1853.1053" timestamp="1587054019949" />
+    <state x="487" y="144" width="777" height="857" key="CommitChangelistDialog2" timestamp="1587112509646">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state x="487" y="144" width="777" height="857" key="CommitChangelistDialog2/0.27.1853.1053@0.27.1853.1053" timestamp="1587112509646" />
     <state x="548" y="300" width="735" height="527" key="FileChooserDialogImpl" timestamp="1587054532532">
       <screen x="0" y="27" width="1853" height="1053" />
     </state>
     <state x="548" y="300" width="735" height="527" key="FileChooserDialogImpl/0.27.1853.1053@0.27.1853.1053" timestamp="1587054532532" />
+    <state width="1807" height="275" key="GridCell.Tab.0.bottom" timestamp="1587112442584">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="275" key="GridCell.Tab.0.bottom/0.27.1853.1053@0.27.1853.1053" timestamp="1587112442584" />
+    <state width="1807" height="275" key="GridCell.Tab.0.center" timestamp="1587112442584">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="275" key="GridCell.Tab.0.center/0.27.1853.1053@0.27.1853.1053" timestamp="1587112442584" />
+    <state width="1807" height="275" key="GridCell.Tab.0.left" timestamp="1587112442584">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="275" key="GridCell.Tab.0.left/0.27.1853.1053@0.27.1853.1053" timestamp="1587112442584" />
+    <state width="1807" height="275" key="GridCell.Tab.0.right" timestamp="1587112442584">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="275" key="GridCell.Tab.0.right/0.27.1853.1053@0.27.1853.1053" timestamp="1587112442584" />
     <state x="459" y="211" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1587054108532">
       <screen x="0" y="27" width="1853" height="1053" />
     </state>
@@ -78,5 +114,13 @@
       <screen x="0" y="27" width="1853" height="1053" />
     </state>
     <state x="235" y="244" width="1372" height="625" key="new project wizard/0.27.1853.1053@0.27.1853.1053" timestamp="1587055262900" />
+    <state x="590" y="252" key="run.anything.popup" timestamp="1587111358328">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state x="590" y="252" key="run.anything.popup/0.27.1853.1053@0.27.1853.1053" timestamp="1587111358328" />
+    <state x="589" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1587111166726">
+      <screen x="0" y="27" width="1853" height="1053" />
+    </state>
+    <state x="589" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1853.1053@0.27.1853.1053" timestamp="1587111166726" />
   </component>
 </project>

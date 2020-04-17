@@ -1,5 +1,6 @@
 package frontend;
 
+import com.sun.java.browser.plugin2.DOM;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.TimeoutException;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.*;
@@ -21,9 +23,39 @@ public class FrontEndTesting {
     Select dropdown;
     AgentTesting agentTesting;
     WebDriverWait wait;
-    final static String WEBSITEURL = "http://http://13.76.87.194:3005/";
+    final static String WEBSITEURL = "http://localhost:8893/";
     private static final String geckoDriverProperty = "webdriver.gecko.driver";
     private static final String geckoDriverPath = "/home/slimechips/geckodriver-v0.26.0-linux64/geckodriver";
+    private static final long SLEEP_SHORT = 2000;
+    private static final long SLEEP_LONG = 5000;
+
+    class Customer {
+        private final long CURRENT_TIME;
+        private final String EMAIL_TEXT;
+        private final String USERNAME_TEXT;
+        private final String DOMAIN;
+
+        Customer(String domain) {
+            DOMAIN = domain;
+            CURRENT_TIME = System.currentTimeMillis();
+            EMAIL_TEXT = String.format("%d@%s.com", CURRENT_TIME, DOMAIN);
+            USERNAME_TEXT = String.format("%s-%d", DOMAIN, CURRENT_TIME);
+        }
+    }
+
+    static class IndexPage {
+        private static final ArrayList<Customer> customers = new ArrayList<>();
+        private static final String DROPDOWN_SELECTION_TEXT = "Sales";
+
+        private static final String EMAIL_FIELD_ID = "email_input";
+        private static final String USERNAME_FIELD_ID = "username_input";
+        private static final String CATEGORY_DROPDOWN_ID = "category_input";
+        private static final String SUBMIT_BUTTON_CLASS = "requestbutton";
+    }
+
+    static class ChatPage {
+        private static final String SEND_BUTTON_CLASS = "sendbutton";
+    }
 
     @Before
     public void initDriver() throws Exception {
@@ -37,11 +69,10 @@ public class FrontEndTesting {
         wait = new WebDriverWait(driver, 20);
         agentTesting = new AgentTesting(driver, "UserFirstName", "UserLastName");
         driver.get(WEBSITEURL);
-        userName = driver.findElement(By.id("username_input"));
-        email = driver.findElement(By.id("email_input"));
-        dropdown = new Select(driver.findElement(By.id("category_input")));
-        submit = driver.findElement(By.className("btn-primary"));
-
+        userName = driver.findElement(By.id(IndexPage.USERNAME_FIELD_ID));
+        email = driver.findElement(By.id(IndexPage.EMAIL_FIELD_ID));
+        dropdown = new Select(driver.findElement(By.id(IndexPage.CATEGORY_DROPDOWN_ID)));
+        submit = driver.findElement(By.className(IndexPage.SUBMIT_BUTTON_CLASS));
     }
 
     @After
@@ -52,19 +83,24 @@ public class FrontEndTesting {
     // Test 1 : Insert FirstName, LastName, Email and connect to agent
     @Test
     public void testFrontPageSuccessful() throws Exception {
-        System.out.println("Starting Test " + new Object() {
-        }.getClass().getEnclosingMethod().getName());
+        System.out.println("Starting Test " + new Object() {}.getClass().getEnclosingMethod().getName());
         // Use either by index or visible text
-        dropdown.selectByIndex(0);
+        Thread.sleep(SLEEP_SHORT);
+        dropdown.selectByVisibleText(IndexPage.DROPDOWN_SELECTION_TEXT);
+        Thread.sleep(SLEEP_SHORT);
         // fill up name boxes
-        userName.sendKeys("UserFirstName");
-        secondName.sendKeys("UserLastName");
-        email.sendKeys("testing@test.com");
+        Customer customer = new Customer("a");
+        IndexPage.customers.add(customer);
+        userName.sendKeys(customer.USERNAME_TEXT);
+        Thread.sleep(SLEEP_SHORT);
+        email.sendKeys(customer.EMAIL_TEXT);
+        Thread.sleep(SLEEP_SHORT);
         // submit
         submit.click();
+        Thread.sleep(SLEEP_LONG);
         // Send button
         WebElement send = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//button[@class='btn btn-primary px-3' and contains(.,'Send')]")));
+                By.xpath(String.format("//button[@class='%s' and contains(.,'Send')]", ChatPage.SEND_BUTTON_CLASS))));
         boolean sendEnabled = send.isEnabled();
         assertTrue(sendEnabled);
     }
